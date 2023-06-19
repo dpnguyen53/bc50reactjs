@@ -3,3 +3,9 @@
     - Component: JSX
         + Stateful Component (class)
         + Stateless Component (function)
+
+====== Buổi 2 ======
+    - Rendering elements: {}
+    - Handling Events: onClick={}
+    - State: state thay đổi giá trị => render chạy lại lần mới
+    - List keys
