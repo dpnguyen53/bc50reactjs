@@ -9,7 +9,7 @@ export default class DemoState extends Component {
       isLogin: false,
     };
 
-    console.log("constructor - chay 1 lan duy nhat");
+    // console.log("constructor - chay 1 lan duy nhat");
 
     //bind handlLogin
     // this.handlLogin = this.handlLogin.bind(this);
@@ -50,7 +50,7 @@ export default class DemoState extends Component {
   }
 
   render() {
-    console.log("render");
+    // console.log("render");
     return (
       <div>
         <h1>DemoState</h1>

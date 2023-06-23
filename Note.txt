@@ -9,3 +9,10 @@
     - Handling Events: onClick={}
     - State: state thay đổi giá trị => render chạy lại lần mới
     - List keys
+
+====== Buổi 3 ======
+    - Communicate: giao tiếp các component
+        + Props: Truyền dữ liệu từ component cha => con
+        + Lifting State Up: Truyền dữ liệu từ component con => cha
+
+    - Shopping cart

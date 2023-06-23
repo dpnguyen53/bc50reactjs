@@ -5,6 +5,8 @@ import HandlingEvents from "./handling-events";
 import DemoState from "./state";
 import Car from "./car";
 import ListKey from "./list-key";
+import Communicate from "./communicate";
+import LiftingStateUpCart from "./shopping-cart";
 
 function App() {
   return (
@@ -18,6 +20,10 @@ function App() {
       <Car />
       <hr />
       <ListKey />
+      <hr />
+      <Communicate />
+      <hr />
+      <LiftingStateUpCart />
 
       <br />
       <br />
