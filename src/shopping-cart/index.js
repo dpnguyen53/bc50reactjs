@@ -9,6 +9,7 @@ export default class LiftingStateUpCart extends Component {
     this.state = {
       listProduct: data,
       productDetail: data[0],
+      listCart: [],
     };
   }
 
@@ -19,8 +20,85 @@ export default class LiftingStateUpCart extends Component {
     });
   };
 
+  _findIndex = (maSP) =>
+    this.state.listCart.findIndex((product) => product.maSP === maSP);
+
+  handleAddCart = (product) => {
+    const index = this._findIndex(product.maSP);
+
+    //tạo mảng listCart mới từ this.state.listCart
+    let listCart = [...this.state.listCart];
+
+    if (index !== -1) {
+      //tim thay => Cap nhat SL
+      listCart[index].soLuong += 1;
+    } else {
+      //add to listCart
+      const productAddCart = {
+        maSP: product.maSP,
+        tenSP: product.tenSP,
+        hinhAnh: product.hinhAnh,
+        soLuong: 1,
+        giaBan: product.giaBan,
+      };
+
+      listCart.push(productAddCart);
+    }
+
+    //Cập nhật lại state
+    this.setState({
+      listCart,
+    });
+  };
+
+  handleUpdateQuantity = (maSP, isPlus) => {
+    let listCartClone = [...this.state.listCart];
+    const index = this._findIndex(maSP);
+
+    if (index !== -1) {
+      if (isPlus) {
+        //tang SL
+        listCartClone[index].soLuong += 1;
+      } else {
+        // giam SL
+        if (listCartClone[index].soLuong > 1) {
+          listCartClone[index].soLuong -= 1;
+        }
+      }
+
+      //cap nhat lai state
+      this.setState({
+        listCart: listCartClone,
+      });
+    }
+  };
+
+  handleDeleteProduct = (maSP) => {
+    //clone mảng listCart
+    let listCartClone = [...this.state.listCart];
+
+    //tim vi tri
+    const index = this._findIndex(maSP);
+
+    if (index !== -1) {
+      //xoa
+      listCartClone.splice(index, 1);
+      //cap nhat state
+      this.setState({
+        listCart: listCartClone,
+      });
+    }
+  };
+
+  totalQuantity = () => {
+    return this.state.listCart.reduce(
+      (total, product) => (total += product.soLuong),
+      0
+    );
+  };
+
   render() {
-    const { productDetail } = this.state;
+    const { productDetail, listCart } = this.state;
     return (
       <div>
         <h3 className="title">Bài tập giỏ hàng</h3>
@@ -30,14 +108,19 @@ export default class LiftingStateUpCart extends Component {
             data-toggle="modal"
             data-target="#modelId"
           >
-            Giỏ hàng (0)
+            Giỏ hàng ({this.totalQuantity()})
           </button>
         </div>
         <DanhSachSanPham
           listProduct={this.state.listProduct}
           getDetailProduct={this.handleDetailProduct}
+          getProductAddCart={this.handleAddCart}
         />
-        <Modal />
+        <Modal
+          listCart={listCart}
+          getProductUpdate={this.handleUpdateQuantity}
+          getDelProduct={this.handleDeleteProduct}
+        />
         <div className="row">
           <div className="col-sm-5">
             <img className="img-fluid" src="./img/vsphone.jpg" alt="" />

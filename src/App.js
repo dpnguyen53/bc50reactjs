@@ -7,6 +7,7 @@ import Car from "./car";
 import ListKey from "./list-key";
 import Communicate from "./communicate";
 import LiftingStateUpCart from "./shopping-cart";
+import Home from "./user-managment";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
       <Communicate />
       <hr />
       <LiftingStateUpCart />
+      <hr />
+      <Home />
 
       <br />
       <br />

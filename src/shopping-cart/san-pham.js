@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class SanPham extends Component {
   render() {
-    const { product, getDetailProduct } = this.props;
+    const { product, getDetailProduct, getProductAddCart } = this.props;
     return (
       <div className="col-sm-4">
         <div className="card">
@@ -17,7 +17,14 @@ export default class SanPham extends Component {
             >
               Chi tiết
             </button>
-            <button className="btn btn-danger">Thêm giỏ hàng</button>
+            <button
+              className="btn btn-danger"
+              onClick={() => {
+                getProductAddCart(product);
+              }}
+            >
+              Thêm giỏ hàng
+            </button>
           </div>
         </div>
       </div>

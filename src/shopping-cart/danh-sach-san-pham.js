@@ -3,7 +3,7 @@ import SanPham from "./san-pham";
 
 export default class DanhSachSanPham extends Component {
   renderListProduct = () => {
-    const { listProduct, getDetailProduct } = this.props;
+    const { listProduct, getDetailProduct, getProductAddCart } = this.props;
 
     return listProduct.map((product) => {
       return (
@@ -11,6 +11,7 @@ export default class DanhSachSanPham extends Component {
           key={product.maSP}
           product={product}
           getDetailProduct={getDetailProduct}
+          getProductAddCart={getProductAddCart}
         />
       );
     });

@@ -16,3 +16,7 @@
         + Lifting State Up: Truyền dữ liệu từ component con => cha
 
     - Shopping cart
+
+====== Buổi 4 ======
+    - Shopping cart
+    - User management
