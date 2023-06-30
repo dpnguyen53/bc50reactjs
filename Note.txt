@@ -20,3 +20,8 @@
 ====== Buổi 4 ======
     - Shopping cart
     - User management
+
+====== Buổi 5 ======
+    - User management
+    - Form
+    - UNSAFE_componentWillReceiveProps

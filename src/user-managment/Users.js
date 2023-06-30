@@ -3,10 +3,15 @@ import UserItem from "./UserItem";
 
 class Users extends Component {
   renderListUser = () => {
-    const { listUser, getUserDelete } = this.props;
+    const { listUser, getUserDelete, getUserEdit } = this.props;
     return listUser.map((user) => {
       return (
-        <UserItem key={user.id} user={user} getUserDelete={getUserDelete} />
+        <UserItem
+          key={user.id}
+          user={user}
+          getUserDelete={getUserDelete}
+          getUserEdit={getUserEdit}
+        />
       );
     });
   };

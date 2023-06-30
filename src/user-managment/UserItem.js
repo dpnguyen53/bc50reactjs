@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class UserItem extends Component {
   render() {
-    const { user, getUserDelete } = this.props;
+    const { user, getUserDelete, getUserEdit } = this.props;
 
     return (
       <tr>
@@ -16,6 +16,9 @@ class UserItem extends Component {
             className="btn btn-info mr-2"
             data-toggle="modal"
             data-target="#modelIdUser"
+            onClick={() => {
+              getUserEdit(user);
+            }}
           >
             Edit
           </button>
