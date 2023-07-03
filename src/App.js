@@ -7,7 +7,8 @@ import Car from "./car";
 import ListKey from "./list-key";
 import Communicate from "./communicate";
 import LiftingStateUpCart from "./shopping-cart";
-import Home from "./user-managment";
+// import Home from "./user-managment";
+import Home from "./user-managment-redux";
 
 function App() {
   return (

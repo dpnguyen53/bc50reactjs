@@ -25,3 +25,7 @@
     - User management
     - Form
     - UNSAFE_componentWillReceiveProps
+
+
+====== Buổi 6 ======
+    - Reudx
