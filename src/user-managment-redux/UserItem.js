@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { actDeleteUser, actEditUser } from "./../store/actions";
 
 class UserItem extends Component {
   render() {
-    const { user, getUserEdit, deleteUser } = this.props;
+    const { user, editUser, deleteUser } = this.props;
 
     return (
       <tr>
@@ -18,7 +19,7 @@ class UserItem extends Component {
             data-toggle="modal"
             data-target="#modelIdUser"
             onClick={() => {
-              getUserEdit(user);
+              editUser(user);
             }}
           >
             Edit
@@ -41,12 +42,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     //key là props cho component UserItem
     deleteUser: (id) => {
-      const action = {
-        type: "DELETE_USER",
-        payload: id,
-      };
       //dispatch gửi action lên reducer
-      dispatch(action);
+      dispatch(actDeleteUser(id));
+    },
+
+    editUser: (user) => {
+      dispatch(actEditUser(user));
     },
   };
 };

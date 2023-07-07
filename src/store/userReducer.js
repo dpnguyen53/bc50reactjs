@@ -1,3 +1,5 @@
+import { DELETE_USER, EDIT_USER, SUBMIT_USER, GET_KEYWORD } from "./constants";
+
 const initialState = {
   listUser: [
     {
@@ -22,9 +24,8 @@ const initialState = {
 };
 
 const userReducer = (state = initialState, action) => {
-  console.log(action);
   switch (action.type) {
-    case "DELETE_USER": {
+    case DELETE_USER: {
       //Xoá user
       let listUserClone = [...state.listUser];
       //tìm vị trí
@@ -41,17 +42,21 @@ const userReducer = (state = initialState, action) => {
       return { ...state };
     }
 
-    case "GET_KEYWORD": {
+    case GET_KEYWORD: {
       state.keyword = action.payload;
       return { ...state };
     }
 
-    case "SUBMIT_USER": {
+    case SUBMIT_USER: {
       const user = action.payload;
       let listUserClone = [...state.listUser];
 
       if (user.id) {
         //update
+        const index = listUserClone.findIndex((item) => item.id === user.id);
+        if (index !== -1) {
+          listUserClone[index] = user;
+        }
       } else {
         //add
         const userClone = { ...user, id: new Date().getTime() };
@@ -59,6 +64,12 @@ const userReducer = (state = initialState, action) => {
       }
       //cap nhat lai state
       state.listUser = listUserClone;
+
+      return { ...state };
+    }
+
+    case EDIT_USER: {
+      state.userEdit = action.payload;
 
       return { ...state };
     }

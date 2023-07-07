@@ -29,3 +29,9 @@
 
 ====== Buổi 6 ======
     - Reudx
+    - User management redux
+
+====== Buổi 7 ======
+    - User management redux
+    - Action creator
+    - Form Validation

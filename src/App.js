@@ -9,6 +9,7 @@ import Communicate from "./communicate";
 import LiftingStateUpCart from "./shopping-cart";
 // import Home from "./user-managment";
 import Home from "./user-managment-redux";
+import FormValidation from "./form-validation";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
       <LiftingStateUpCart />
       <hr />
       <Home />
+      <hr />
+      <FormValidation />
 
       <br />
       <br />

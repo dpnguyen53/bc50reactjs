@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { actSubmitUser } from "./../store/actions";
 
 class Modal extends Component {
   constructor(props) {
@@ -68,8 +69,6 @@ class Modal extends Component {
   }
 
   render() {
-    console.log(this.props.userEdit);
-
     return (
       <div
         className="modal fade"
@@ -161,17 +160,18 @@ class Modal extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    userEdit: state.userReducer.userEdit,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => {
   return {
     submitUser: (user) => {
-      const action = {
-        type: "SUBMIT_USER",
-        payload: user,
-      };
-
-      dispatch(action);
+      dispatch(actSubmitUser(user));
     },
   };
 };
 
-export default connect(null, mapDispatchToProps)(Modal);
+export default connect(mapStateToProps, mapDispatchToProps)(Modal);

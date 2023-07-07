@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 class Users extends Component {
   renderListUser = () => {
-    let { listUser, getUserDelete, getUserEdit, keyword } = this.props;
+    let { listUser, keyword } = this.props;
     //filter listUser by keyword
     listUser = listUser.filter(
       (user) =>
@@ -12,14 +12,7 @@ class Users extends Component {
     );
 
     return listUser?.map((user) => {
-      return (
-        <UserItem
-          key={user.id}
-          user={user}
-          // getUserDelete={getUserDelete}
-          getUserEdit={getUserEdit}
-        />
-      );
+      return <UserItem key={user.id} user={user} />;
     });
   };
 
