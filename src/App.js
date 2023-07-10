@@ -10,8 +10,12 @@ import LiftingStateUpCart from "./shopping-cart";
 // import Home from "./user-managment";
 import Home from "./user-managment-redux";
 import FormValidation from "./form-validation";
+import Lifecycle from "./lifecycle";
+import { useState } from "react";
 
 function App() {
+  const [state, setState] = useState(false);
+
   return (
     <>
       <RederingElement />
@@ -31,7 +35,11 @@ function App() {
       <Home />
       <hr />
       <FormValidation />
-
+      <hr />
+      <button className="btn btn-danger" onClick={() => setState(true)}>
+        Destroy component Lifecyle
+      </button>
+      {!state && <Lifecycle />}
       <br />
       <br />
       <br />

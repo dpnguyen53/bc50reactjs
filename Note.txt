@@ -35,3 +35,6 @@
     - User management redux
     - Action creator
     - Form Validation
+
+====== Buổi 8 ======
+     - Lifecycle

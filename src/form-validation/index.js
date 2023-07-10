@@ -29,16 +29,16 @@ export default class FormValidation extends Component {
     this.setState(
       {
         values: { ...this.state.values, [name]: value },
-      },
-      () => {
-        console.log(this.state);
       }
+      // () => {
+      //   console.log(this.state);
+      // }
     );
   };
 
   handleValidation = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
+    // console.log(name, value);
 
     let mess = value.trim() ? "" : `${name} k dc rong`;
 
@@ -47,6 +47,10 @@ export default class FormValidation extends Component {
     switch (name) {
       case "manv":
         manvValid = mess === "" ? true : false;
+        if (value && value.trim().length < 4) {
+          mess = "Kí tự từ 4 trở lên";
+          manvValid = false;
+        }
         break;
 
       case "tennv":
@@ -55,6 +59,10 @@ export default class FormValidation extends Component {
 
       case "email":
         emailValid = mess === "" ? true : false;
+        if (value && !value.match("[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$")) {
+          mess = "Vui lòng nhâp email đúng định dang!";
+          emailValid = false;
+        }
         break;
 
       default:
@@ -69,10 +77,10 @@ export default class FormValidation extends Component {
         tennvValid,
         emailValid,
         formValid: manvValid && tennvValid && emailValid,
-      },
-      () => {
-        console.log(this.state);
       }
+      // () => {
+      //   console.log(this.state);
+      // }
     );
   };
 
